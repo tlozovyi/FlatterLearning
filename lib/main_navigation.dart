@@ -5,7 +5,7 @@ class MainNavigationState extends State<MainNavigation> {
     int _currentNavigationIndex = 0;
     List<Widget> _pagesList = [
         RandomWords(),
-        Container(color: Colors.red,),
+        Image.asset("assets/images/melon.jpg"),
         Container(color: Colors.blue.shade700,)
     ];
     

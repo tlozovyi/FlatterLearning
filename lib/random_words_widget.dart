@@ -1,5 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:test_drive_app/words_details.dart';
 
 class RandomWordsState extends State<RandomWords> {
     final List<WordPair> _suggestions = <WordPair>[];
@@ -76,20 +77,27 @@ class RandomWordsState extends State<RandomWords> {
                 pair.asPascalCase,
                 style: _biggerFont,
             ),
-            trailing: Icon(
-                alreadySaved ? Icons.favorite : Icons.favorite_border,
-                color: alreadySaved ? Colors.red : null,
+            trailing: GestureDetector(
+                child: Icon(
+                    alreadySaved ? Icons.favorite : Icons.favorite_border,
+                    color: alreadySaved ? Colors.red : null,
+                ),
+                onTap: () => _favoriteIconClicked(pair),
             ),
             onTap: () {
-                setState(() {
-                    if (alreadySaved) {
-                        _saved.remove(pair);
-                    } else {
-                        _saved.add(pair);
-                    }
-                });
+                WordsDetailsPage.open(context, pair);
             },
         );
+    }
+    
+    void _favoriteIconClicked(WordPair pair) {
+        setState(() {
+            if (_saved.contains(pair)) {
+                _saved.remove(pair);
+            } else {
+                _saved.add(pair);
+            }
+        });
     }
 }
 
