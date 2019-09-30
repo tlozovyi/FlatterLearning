@@ -19,15 +19,15 @@ class MainNavigationState extends State<MainNavigation> {
                 items: [
                     BottomNavigationBarItem(
                         icon: Icon(Icons.format_list_bulleted),
-                        title: Text("List 1")
+                        title: Text("Words")
                     ),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.featured_play_list),
-                        title: Text("List 2")
+                        title: Text("Melon!")
                     ),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.line_style),
-                        title: Text("List 3")
+                        title: Text("Nothing")
                     ),
                 ],
             ),
