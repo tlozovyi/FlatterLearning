@@ -14,9 +14,9 @@ class WordsDetails extends StatelessWidget {
     var mainColumn = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[firstRow, secondRow],
+      children: <Widget>[firstRow, secondRow, Spacer()],
     );
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Words details"),
@@ -27,17 +27,20 @@ class WordsDetails extends StatelessWidget {
 
   Widget _createRow(String text, String image) {
     return Expanded(
-        child: Container(
-            margin: EdgeInsets.all(16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Container(margin: EdgeInsets.all(16), child: Text(text)),
-                Expanded(
-                  child: Image.asset(image),
-                ),
-              ],
-            )));
+      flex: 2,
+      child: Container(
+        margin: EdgeInsets.all(16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(margin: EdgeInsets.all(16), child: Text(text)),
+            Expanded(
+              child: Image.asset(image),
+            ),
+          ],
+        )
+      )
+    );
   }
 }
 
