@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_drive_app/main_navigation.dart';
-import 'package:test_drive_app/random_words_widget.dart';
 
 void main() => runApp(MyApp());
 
