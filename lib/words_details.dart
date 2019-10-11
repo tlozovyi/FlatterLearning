@@ -11,31 +11,29 @@ class WordsDetails extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return WordDetailsState(wordPair);
+    return WordDetailsState();
   }
 }
 
 class WordDetailsState extends State<WordsDetails> {
-  final WordPair wordPair;
   var _firstWordUrl = '';
   var _secondWordUrl = '';
 
-  WordDetailsState(this.wordPair) : assert(wordPair != null);
 
   @override
   Widget build(BuildContext context) {
-    var firstRow = _createRow(wordPair.first, _firstWordUrl);
-    var secondRow = _createRow(wordPair.second, _secondWordUrl);
+    var firstRow = _createRow(widget.wordPair.first, _firstWordUrl);
+    var secondRow = _createRow(widget.wordPair.second, _secondWordUrl);
     
     if (_firstWordUrl.isEmpty) {
-      getImageUrlForWord(wordPair.first).then((url) {
+      getImageUrlForWord(widget.wordPair.first).then((url) {
         print("Loaded first word URL: " + url);
         setState(() {
           _firstWordUrl = url;
         });
       });
     } else if (_secondWordUrl.isEmpty) {
-      getImageUrlForWord(wordPair.second).then((url) {
+      getImageUrlForWord(widget.wordPair.second).then((url) {
         print("Loaded second word URL: " + url);
         setState(() {
           _secondWordUrl = url;
